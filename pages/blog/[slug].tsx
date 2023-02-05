@@ -22,7 +22,7 @@ export async function getStaticPaths() {
     params: { slug: post.attributes.slug },
   }));
 
-  if (!paths.length) return { paths: [], fallback: false };
+  if (!paths) return { paths: [], fallback: false };
 
   return { paths, fallback: false };
 }
