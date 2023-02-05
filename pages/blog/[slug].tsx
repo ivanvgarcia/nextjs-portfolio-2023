@@ -39,6 +39,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
 const BlogPost: NextPageWithLayout = ({
   post: {
+    data,
     data: {
       attributes: { title, cover, body },
     },
@@ -74,6 +75,8 @@ const BlogPost: NextPageWithLayout = ({
         {errors && (
           <div className="error">An error occurred: {errors.message}</div>
         )}
+
+        {!data && <div className="error">No post found</div>}
 
         <h1>{title}</h1>
 

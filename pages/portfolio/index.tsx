@@ -56,6 +56,8 @@ export default function Home({ post: { data, errors } }: any) {
         <div className="error">An error occurred: {errors.message}</div>
       )}
 
+      {!data.length && <div className="error">No posts found</div>}
+
       <header className="format format-sm sm:format-base lg:format-lg dark:format-invert py-10">
         <h1>Portfolio</h1>
       </header>

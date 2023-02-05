@@ -64,6 +64,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
 export default function Home({
   post: {
+    data,
     data: {
       attributes: { title, cover, body },
     },
@@ -99,6 +100,8 @@ export default function Home({
         {errors && (
           <div className="error">An error occurred: {errors.message}</div>
         )}
+
+        {!data && <div className="error">No posts found</div>}
 
         <h1>{title}</h1>
 

@@ -13,8 +13,6 @@ export async function fetchPosts() {
 }
 
 export async function fetchPostBySlug(slug: string) {
-  console.log(process.env.API_URL, slug);
-
   const response = await fetch(
     `${process.env.API_URL}/posts/${slug}?populate=cover`,
     {
