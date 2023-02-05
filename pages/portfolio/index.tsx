@@ -63,7 +63,7 @@ export default function Home({ post: { data, errors } }: any) {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {data.map((post: any) => {
+        {data?.map((post: any) => {
           return (
             <Card
               key={post.id}

@@ -72,7 +72,7 @@ const Home: NextPageWithLayout = ({ post: { data, errors } }: any) => {
         transition={{ type: "spring", stiffness: 100 }}
         className="grid grid-cols-1 md:grid-cols-2 gap-4"
       >
-        {data.map((post: any) => {
+        {data?.map((post: any) => {
           return (
             <Card
               horizontal
