@@ -120,12 +120,7 @@ export default function Home() {
             </Button.Group>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={imgContainer}
-            className="relative pt-60 lg:pt-0"
-          >
+          <div className="relative pt-60 lg:pt-0">
             <motion.div
               animate={{ opacity: [0, 0.5, 1, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
@@ -154,7 +149,7 @@ export default function Home() {
                 className="absolute left-0 md:left-32 xl:left-56 bottom-0 m-0 w-3/4 lg:w-auto"
               />
             </motion.div>
-          </motion.div>
+          </div>
         </motion.div>
       </section>
     </>

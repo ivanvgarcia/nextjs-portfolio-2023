@@ -42,7 +42,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ post: { data, errors } }: any) {
+export default function Home({ post: { data } }: any) {
   return (
     <section className="post-section">
       <Head>
@@ -52,15 +52,11 @@ export default function Home({ post: { data, errors } }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {errors && (
-        <div className="error">An error occurred: {errors.message}</div>
-      )}
-
-      {!data && <div className="error">No posts found</div>}
-
       <header className="format format-sm sm:format-base lg:format-lg dark:format-invert py-10">
         <h1>Portfolio</h1>
       </header>
+
+      {!data && <div className="text-white">No portfolios found</div>}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {data?.map((post: any) => {

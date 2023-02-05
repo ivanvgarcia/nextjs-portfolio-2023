@@ -1,12 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
-import type { NextPageWithLayout } from "@/pages/_app";
-import { ReactElement } from "react";
 import { useRouter } from "next/router";
+
+import { ReactElement } from "react";
 import { remark } from "remark";
 import html from "remark-html";
 import { motion, useScroll } from "framer-motion";
+
+import type { NextPageWithLayout } from "@/pages/_app";
 import Layout from "@/components/Layout";
+
 import { fetchPostBySlug, fetchPosts } from "../api/posts";
 
 async function processMarkdown(content: string) {
@@ -45,7 +48,6 @@ const BlogPost: NextPageWithLayout = ({
     data: {
       attributes: { title, cover, body },
     },
-    errors,
   },
 }: any) => {
   const router = useRouter();
@@ -73,10 +75,6 @@ const BlogPost: NextPageWithLayout = ({
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
-        {errors && (
-          <div className="error">An error occurred: {errors.message}</div>
-        )}
 
         {!data && <div className="error">No post found</div>}
 
