@@ -28,27 +28,6 @@ export default function Home() {
     },
   };
 
-  const imgContainer = {
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.8,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      transition: {
-        when: "afterChildren",
-      },
-    },
-  };
-
-  const imagesVariant = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
-
   return (
     <>
       <Head>
@@ -124,7 +103,6 @@ export default function Home() {
             <motion.div
               animate={{ opacity: [0, 0.5, 1, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
-              variants={imagesVariant}
               className="grid grid-cols-2 max-w-[80%] mx-auto"
             >
               <Image
@@ -139,7 +117,6 @@ export default function Home() {
             <motion.div
               animate={{ opacity: [1, 0.5, 0, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
-              variants={imagesVariant}
             >
               <Image
                 src="/images/ivan_nobg.png"
