@@ -15,9 +15,22 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "flowbite": "@types/node1.6.3",
+    "flowbite-react": "@types/node0.3.8",
+    "framer-motion": "@types/node9.0.1",
     "next": "13.1.6",
+    "qs": "@types/node6.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "remark": "@types/node14.0.2",
+    "remark-html": "@types/node15.0.1",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@types/qs": "@types/node6.9.7",
+    "autoprefixer": "@types/node10.4.13",
+    "flowbite-typography": "@types/node1.0.3",
+    "postcss": "@types/node8.4.21",
+    "tailwindcss": "@types/node3.2.4"
   }
 }
