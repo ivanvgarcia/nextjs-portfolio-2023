@@ -128,7 +128,7 @@ export default function Home() {
           >
             <motion.div
               animate={{ opacity: [0, 0.5, 1, 0] }}
-              transition={{ duration: 6, repeat: Infinity }}
+              transition={{ duration: 3, repeat: Infinity }}
               variants={imagesVariant}
               className="grid grid-cols-2 max-w-[80%] mx-auto"
             >
@@ -143,7 +143,7 @@ export default function Home() {
 
             <motion.div
               animate={{ opacity: [1, 0.5, 0, 1] }}
-              transition={{ duration: 6, repeat: Infinity }}
+              transition={{ duration: 3, repeat: Infinity }}
               variants={imagesVariant}
             >
               <Image
