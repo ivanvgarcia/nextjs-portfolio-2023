@@ -18,7 +18,7 @@ async function processMarkdown(content: string) {
 export async function getStaticPaths() {
   const posts = await fetchPosts();
 
-  const paths = posts.data.map((post: any) => ({
+  const paths = posts.data?.map((post: any) => ({
     params: { slug: post.attributes.slug },
   }));
 
