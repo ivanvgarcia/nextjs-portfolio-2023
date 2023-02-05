@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+#__next {
+  height: 100%;
+}
+
+@layer components {
+  .post-section {
+    @apply mx-auto w-full max-w-6xl my-10 px-4 lg:px-0;
+  }
+
+  .progress-bar {
+    height: 10px;
+    transform-origin: 0%;
+    z-index: 1000;
+    @apply fixed bg-red-700 top-0 left-0 right-0;
+  }
+}

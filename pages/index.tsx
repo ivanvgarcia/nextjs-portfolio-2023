@@ -1,10 +1,14 @@
 import Head from "next/head";
-import { useRef } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "flowbite-react";
 
 export default function Home() {
   const line = "Ivan Garcia";
+
+  const subtitle = "Software Engineer";
+
   const sentence = {
     hidden: { opacity: 1 },
     visible: {
@@ -24,19 +28,25 @@ export default function Home() {
     },
   };
 
-  const draw = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: (i) => {
-      const delay = 1 + i * 0.5;
-      return {
-        pathLength: 1,
-        opacity: 1,
-        transition: {
-          pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-          opacity: { delay, duration: 0.01 },
-        },
-      };
+  const imgContainer = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.8,
+      },
     },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren",
+      },
+    },
+  };
+
+  const imagesVariant = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
   };
 
   return (
@@ -51,71 +61,101 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="format format-invert">
-        <motion.h2 variants={sentence} initial="hidden" animate="visible">
-          <motion.svg viewBox="0 0 600 600" initial="hidden" animate="visible">
-            {/* Letter I */}
-            <motion.line
-              x1="50"
-              y1="0"
-              x2="50"
-              y2="100"
-              stroke="#00cc88"
-              variants={draw}
-              strokeWidth="2"
-            />
+      <section className="home format format-invert h-full mx-auto max-w-full relative bg-white dark:bg-slate-800 py-4">
+        <motion.div
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ type: "spring", stiffness: 100 }}
+          className="grid grid-cols-1 lg:grid-cols-2 mx-4 px-10 h-full bg-red-800 rounded-lg drop-shadow-lg"
+        >
+          <motion.div
+            variants={sentence}
+            initial="hidden"
+            animate="visible"
+            className="py-10 lg:py-56"
+          >
+            <Link
+              href="/contact"
+              className="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200 no-underline mb-5"
+            >
+              <span className="px-3 text-white text-sm font-semibold leading-5 bg-red-700 rounded-full py-0.5">
+                Need a website?
+              </span>
+              <span className="ml-4 text-sm">Contact Me</span>
+            </Link>
 
-            {/* Letter V */}
+            <h1 className="mb-0 lg:text-6xl text-gray-800 dark:text-white">
+              {line.split("").map((char, index) => {
+                return (
+                  <motion.span key={char + "-" + index} variants={letter}>
+                    {char}
+                  </motion.span>
+                );
+              })}
+            </h1>
 
-            <motion.line
-              x1="70"
-              y1="0"
-              x2="120"
-              y2="100"
-              stroke="#00cc88"
-              variants={draw}
-              strokeWidth="2"
-            />
+            <h2 className="lg:text-5xl mb-4 text-slate-900">
+              {subtitle.split("").map((char, index) => {
+                return (
+                  <motion.span key={char + "-" + index} variants={letter}>
+                    {char}
+                  </motion.span>
+                );
+              })}
+            </h2>
 
-            <motion.line
-              x1="120"
-              y1="100"
-              x2="170"
-              y2="0"
-              stroke="#00cc88"
-              variants={draw}
-              strokeWidth="2"
-            />
+            <p className="lg:text-xl text-white">
+              Over 3 years of experience developing websites for clients from
+              around the world. Experienced with Vue.js, React.js, Next.js,
+              Node.js, Ruby on Rails and more.
+            </p>
 
-            <motion.line
-              x1="230"
-              y1="0"
-              x2="180"
-              y2="100"
-              stroke="#00cc88"
-              variants={draw}
-              strokeWidth="2"
-            />
+            <Button.Group>
+              <Button color="dark" className="no-underline" href="/blog">
+                Blog
+              </Button>
+              <Button color="dark" className="no-underline" href="/portfolio">
+                Portfolio
+              </Button>
+            </Button.Group>
+          </motion.div>
 
-            <motion.line
-              x1="280"
-              y1="100"
-              x2="230"
-              y2="0"
-              stroke="#00cc88"
-              variants={draw}
-              strokeWidth="2"
-            />
-          </motion.svg>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={imgContainer}
+            className="relative pt-60 lg:pt-0"
+          >
+            <motion.div
+              animate={{ opacity: [0, 0.5, 1, 0] }}
+              transition={{ duration: 6, repeat: Infinity }}
+              variants={imagesVariant}
+              className="grid grid-cols-2 max-w-[80%] mx-auto"
+            >
+              <Image
+                src="/images/ivan.png"
+                alt="Ivan Garcia"
+                width={400}
+                height={400}
+                className="absolute left-0 bottom-0 m-0 w-3/4 lg:w-auto"
+              />
+            </motion.div>
 
-          {line.split("").map((char, index) => {
-            return (
-              <motion.span key={char + "-" + index} variants={letter}>
-                {char}
-              </motion.span>
-            );
-          })}
-        </motion.h2>
+            <motion.div
+              animate={{ opacity: [1, 0.5, 0, 1] }}
+              transition={{ duration: 6, repeat: Infinity }}
+              variants={imagesVariant}
+            >
+              <Image
+                src="/images/ivan_nobg.png"
+                alt="Ivan Garcia"
+                width={400}
+                height={400}
+                className="absolute left-0 md:left-32 xl:left-56 bottom-0 m-0 w-3/4 lg:w-auto"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </section>
     </>
   );

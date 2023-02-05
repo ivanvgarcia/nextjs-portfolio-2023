@@ -1,6 +1,11 @@
 import { Navbar, Footer } from "flowbite-react";
 import React, { ReactNode } from "react";
-import styles from "@/styles/Home.module.css";
+import { Manrope } from "@next/font/google";
+import Image from "next/image";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+});
 
 interface Props {
   children?: ReactNode;
@@ -9,16 +14,14 @@ interface Props {
 export default function Home({ children }: Props) {
   return (
     <>
-      <Navbar fluid={true} rounded={true}>
+      <Navbar>
         <Navbar.Brand href="/">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite Logo"
+          <Image
+            src="/logos/red-white.svg"
+            alt="Ivan Logo"
+            width={32}
+            height={32}
           />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flowbite
-          </span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
@@ -31,26 +34,30 @@ export default function Home({ children }: Props) {
         </Navbar.Collapse>
       </Navbar>
 
-      <main className={styles.main}>{children}</main>
+      <main className={manrope.className}>{children}</main>
 
       <Footer container={true}>
         <div className="w-full text-center">
           <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
             <Footer.Brand
-              href="https://flowbite.com"
-              src="https://flowbite.com/docs/images/logo.svg"
-              alt="Flowbite Logo"
-              name="Flowbite"
+              href="/"
+              src="/logos/red-white.svg"
+              alt="Ivan Garcia Logo"
+              name="Ivan Garcia"
             />
             <Footer.LinkGroup>
-              <Footer.Link href="#">About</Footer.Link>
-              <Footer.Link href="#">Privacy Policy</Footer.Link>
-              <Footer.Link href="#">Licensing</Footer.Link>
+              <Footer.Link href="#">Home</Footer.Link>
+              <Footer.Link href="#">Blog</Footer.Link>
+              <Footer.Link href="#">Portfolio</Footer.Link>
               <Footer.Link href="#">Contact</Footer.Link>
             </Footer.LinkGroup>
           </div>
           <Footer.Divider />
-          <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+          <Footer.Copyright
+            href="/"
+            by="Ivan Garcia"
+            year={new Date().getFullYear()}
+          />
         </div>
       </Footer>
     </>
