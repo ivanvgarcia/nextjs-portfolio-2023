@@ -99,33 +99,14 @@ export default function Home() {
             </Button.Group>
           </motion.div>
 
-          <div className="relative pt-60 lg:pt-0">
-            <motion.div
-              animate={{ opacity: [0, 0.5, 1, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="grid grid-cols-2 max-w-[80%] mx-auto"
-            >
-              <Image
-                src="/images/ivan.png"
-                alt="Ivan Garcia"
-                width={400}
-                height={400}
-                className="absolute left-0 bottom-0 m-0 w-3/4 lg:w-auto"
-              />
-            </motion.div>
-
-            <motion.div
-              animate={{ opacity: [1, 0.5, 0, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              <Image
-                src="/images/ivan_nobg.png"
-                alt="Ivan Garcia"
-                width={400}
-                height={400}
-                className="absolute left-0 md:left-32 xl:left-56 bottom-0 m-0 w-3/4 lg:w-auto"
-              />
-            </motion.div>
+          <div className="relative">
+            <Image
+              src="/images/ivan_nobg.png"
+              alt="Ivan Garcia"
+              width={1200}
+              height={1200}
+              className="absolute left-0 md:left-32 xl:left-56 bottom-0 m-0 w-4/5 lg:w-3/5"
+            />
           </div>
         </motion.div>
       </section>

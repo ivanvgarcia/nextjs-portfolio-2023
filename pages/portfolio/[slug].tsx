@@ -1,9 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
+
+import { ReactElement } from "react";
 import { remark } from "remark";
 import html from "remark-html";
 import { motion, useScroll } from "framer-motion";
+
+import type { NextPageWithLayout } from "@/pages/_app";
+import Layout from "@/components/Layout";
 
 async function processMarkdown(content: string) {
   const processedContent = await remark().use(html).process(content);
@@ -16,8 +21,7 @@ async function fetchPosts() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "Bearer e76af5efc61d5ac345616507f8210febd4f53aa35bfec5dbfeca8c6be2fd1189a727dfa696c34bb7d85d1521bb6f8e8482b9afcff976ef678bbb0babf1fbfd47439260fab81854ef6e83cbce03e2452ad35f573c9a3d9e5963b6725f92544f96239544ed87a97dc5db40d04e0c3df6c8c20f3aeb4f199e34c53b4b4f8e88f57e",
+      Authorization: `Bearer ${process.env.API_KEY}`,
     },
   });
 
@@ -31,8 +35,7 @@ async function fetchPostBySlug(slug: string) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          "Bearer e76af5efc61d5ac345616507f8210febd4f53aa35bfec5dbfeca8c6be2fd1189a727dfa696c34bb7d85d1521bb6f8e8482b9afcff976ef678bbb0babf1fbfd47439260fab81854ef6e83cbce03e2452ad35f573c9a3d9e5963b6725f92544f96239544ed87a97dc5db40d04e0c3df6c8c20f3aeb4f199e34c53b4b4f8e88f57e",
+        Authorization: `Bearer ${process.env.API_KEY}`,
       },
     }
   );
@@ -64,7 +67,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function Home({
+const PortfolioPost: NextPageWithLayout = ({
   post: {
     data,
     data: {
@@ -72,7 +75,7 @@ export default function Home({
     },
     errors,
   },
-}: any) {
+}: any) => {
   const router = useRouter();
 
   const { scrollYProgress } = useScroll();
@@ -80,14 +83,14 @@ export default function Home({
   if (router.isFallback) return <div>Loading...</div>;
 
   return (
-    <>
+    <section className="post-section">
       <motion.div
         className="progress-bar"
         style={{ scaleX: scrollYProgress }}
       />
 
       <motion.section
-        initial={{ x: -100 }}
+        initial={{ x: -200 }}
         animate={{ x: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
         className="w-full mx-auto max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert"
@@ -107,10 +110,7 @@ export default function Home({
 
         <h1>{title}</h1>
 
-        <div
-          className="relative mb-10"
-          style={{ height: "350px", width: "100%" }}
-        >
+        <div className="relative lg:mb-10">
           <Image
             src={`${process.env.NEXT_PUBLIC_ROOT_URL}${cover.data.attributes.url}`}
             alt={cover.data.attributes.alternativeText}
@@ -124,6 +124,12 @@ export default function Home({
           dangerouslySetInnerHTML={{ __html: body }}
         />
       </motion.section>
-    </>
+    </section>
   );
-}
+};
+
+PortfolioPost.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default PortfolioPost;
