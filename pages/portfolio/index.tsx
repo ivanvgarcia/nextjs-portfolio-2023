@@ -99,7 +99,7 @@ export default function Home({ post: { data } }: any) {
               </div>
 
               <Image
-                src={post.attributes.cover.data.attributes.url}
+                src={post.attributes.cover.data?.attributes.url}
                 alt={post.attributes.title}
                 fill
                 style={{ objectFit: "cover" }}
