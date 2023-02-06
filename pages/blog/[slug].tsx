@@ -82,7 +82,7 @@ const BlogPost: NextPageWithLayout = ({
 
         <div className="relative lg:mb-10">
           <Image
-            src={`${process.env.NEXT_PUBLIC_ROOT_URL}${cover.data.attributes.url}`}
+            src={cover.data.attributes.url}
             alt={cover.data.attributes.alternativeText}
             width={cover.data.attributes.width}
             height={cover.data.attributes.height}

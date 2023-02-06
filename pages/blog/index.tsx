@@ -76,7 +76,7 @@ const Home: NextPageWithLayout = ({ post: { data, errors } }: any) => {
             <Card
               horizontal
               key={post.id}
-              imgSrc={`${process.env.NEXT_PUBLIC_ROOT_URL}${post.attributes.cover.data.attributes.url}`}
+              imgSrc={post.attributes.cover.data.attributes.url}
               className="cursor-pointer"
               href={`/blog/${post.attributes.slug}`}
             >

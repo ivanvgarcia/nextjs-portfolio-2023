@@ -88,7 +88,7 @@ export default function Home({ post: { data } }: any) {
                     return (
                       <Image
                         key={tech.id}
-                        src={`${process.env.NEXT_PUBLIC_ROOT_URL}${tech.attributes.url}`}
+                        src={tech.attributes.url}
                         width={100}
                         height={100}
                         alt={tech.attributes.alternativeText}
@@ -99,7 +99,7 @@ export default function Home({ post: { data } }: any) {
               </div>
 
               <Image
-                src={`${process.env.NEXT_PUBLIC_ROOT_URL}${post.attributes.cover.data.attributes.url}`}
+                src={post.attributes.cover.data.attributes.url}
                 alt={post.attributes.title}
                 fill
                 style={{ objectFit: "cover" }}
@@ -109,26 +109,6 @@ export default function Home({ post: { data } }: any) {
           );
         })}
       </motion.div>
-
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {data?.map((post: any) => {
-          return (
-            <Card
-              key={post.id}
-              imgSrc={`${process.env.NEXT_PUBLIC_ROOT_URL}${post.attributes.cover.data.attributes.url}`}
-              className="cursor-pointer"
-              href={`/portfolio/${post.attributes.slug}`}
-            >
-              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {post.attributes.title}
-              </h5>
-              <p className="font-normal text-gray-700 dark:text-gray-400">
-                {post.attributes.excerpt}
-              </p>
-            </Card>
-          );
-        })}
-      </div> */}
     </section>
   );
 }
