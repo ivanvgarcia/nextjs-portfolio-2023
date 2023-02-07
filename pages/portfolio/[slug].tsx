@@ -35,7 +35,6 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
   post.data.attributes.body = await processMarkdown(post.data.attributes.body);
 
-  console.log(post.data.attributes.links);
   return {
     props: {
       post,
