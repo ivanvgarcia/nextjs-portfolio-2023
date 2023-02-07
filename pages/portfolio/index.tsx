@@ -80,21 +80,26 @@ export default function Home({ post: { data } }: any) {
               className="relative rounded-xl overflow-hidden bg-red-700 cursor-pointer drop-shadow group transition-all duration-300 ease-in-out min-h-[400px]"
               key={post.id}
             >
-              <div className="absolute left-0 top-0 w-full h-full bg-slate-900/80 hover:bg-slate-900/40 z-10 flex flex-col justify-center items-center">
-                <p className="text-white font-light tracking-wider text-2xl lg:text-5xl">
+              <div className="absolute left-0 top-0 w-full h-full bg-white/80 hover:bg-white/50 z-10 flex flex-col justify-center items-center">
+                <p className="text-slate-900 font-bold tracking-wider text-2xl lg:text-5xl">
                   {post.attributes.title}
                 </p>
                 <br />
-                <div>
+                <div className="flex gap-4">
                   {post.attributes.technologies.data?.map((tech: any) => {
                     return (
-                      <Image
+                      <div
                         key={tech.id}
-                        src={tech.attributes.url}
-                        width={100}
-                        height={100}
-                        alt={tech.attributes.alternativeText}
-                      />
+                        className="relative"
+                        style={{ width: 100, height: 70 }}
+                      >
+                        <Image
+                          src={tech.attributes.url}
+                          alt={tech.attributes.alternativeText || "Tech logo"}
+                          fill
+                          style={{ objectFit: "contain" }}
+                        />
+                      </div>
                     );
                   })}
                 </div>
