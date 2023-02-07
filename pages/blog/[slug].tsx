@@ -10,7 +10,7 @@ import { motion, useScroll } from "framer-motion";
 import type { NextPageWithLayout } from "@/pages/_app";
 import Layout from "@/components/Layout";
 
-import { fetchPostBySlug, fetchPosts } from "../api/posts";
+import { fetchPostBySlug, fetchPosts } from "@/api/posts";
 
 async function processMarkdown(content: string) {
   const processedContent = await remark().use(html).process(content);
