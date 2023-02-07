@@ -3,6 +3,7 @@ import qs from "qs";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import SideMenu from "@/components/SideMenu";
 
 async function fetchPosts() {
   const query = qs.stringify(
@@ -36,7 +37,6 @@ async function fetchPosts() {
 export async function getStaticProps() {
   const post = await fetchPosts();
 
-  console.log(post.data[0]);
   return {
     props: {
       post,
@@ -54,13 +54,15 @@ export default function Home({ post: { data } }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <SideMenu />
+
       {!data && <div className="text-white">No portfolios found</div>}
 
       <motion.h1
         initial={{ opacity: 1, transform: "translate(-50%, -50%);" }}
         animate={{ opacity: 0, scale: 0 }}
         transition={{ delay: 1.5 }}
-        className="center-absolute text-6xl text-white font-light z-10 bg-gradient-to-r from-slate-600 to-slate-900 rounded-full px-8 pt-2 pb-4 border-8 border-white shadow-md"
+        className="center-absolute text-2xl md:text-6xl text-white font-light z-10 bg-gradient-to-r from-slate-600 to-slate-900 rounded-full px-8 pt-2 pb-4 border-8 border-white shadow-md"
       >
         Projects
       </motion.h1>

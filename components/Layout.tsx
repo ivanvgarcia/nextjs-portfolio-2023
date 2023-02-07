@@ -30,7 +30,6 @@ export default function Home({ children }: Props) {
           </Navbar.Link>
           <Navbar.Link href="/blog">Blog</Navbar.Link>
           <Navbar.Link href="/portfolio">Portfolio</Navbar.Link>
-          <Navbar.Link href="/contact">Contact</Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
 

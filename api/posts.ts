@@ -1,5 +1,4 @@
 export async function fetchPosts() {
-  console.log(process.env.API_URL);
   const response = await fetch(`${process.env.API_URL}/posts`, {
     method: "GET",
     headers: {

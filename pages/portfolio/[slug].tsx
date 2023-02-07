@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { ReactElement } from "react";
@@ -9,38 +10,12 @@ import { motion, useScroll } from "framer-motion";
 
 import type { NextPageWithLayout } from "@/pages/_app";
 import Layout from "@/components/Layout";
+import { fetchPosts, fetchPostBySlug } from "@/api/posts";
 
 async function processMarkdown(content: string) {
   const processedContent = await remark().use(html).process(content);
 
   return processedContent.toString();
-}
-
-async function fetchPosts() {
-  const response = await fetch(`${process.env.API_URL}/posts`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.API_KEY}`,
-    },
-  });
-
-  return await response.json();
-}
-
-async function fetchPostBySlug(slug: string) {
-  const response = await fetch(
-    `${process.env.API_URL}/posts/${slug}?populate=cover`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.API_KEY}`,
-      },
-    }
-  );
-
-  return await response.json();
 }
 
 export async function getStaticPaths() {
@@ -60,6 +35,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
   post.data.attributes.body = await processMarkdown(post.data.attributes.body);
 
+  console.log(post.data.attributes.links);
   return {
     props: {
       post,
@@ -67,11 +43,14 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   };
 }
 
+function hasURL(links: { url: string; github: string }) {
+  return links.url || links.github;
+}
+
 const PortfolioPost: NextPageWithLayout = ({
   post: {
-    data,
     data: {
-      attributes: { title, cover, body },
+      attributes: { title, cover, body, links },
     },
     errors,
   },
@@ -106,9 +85,40 @@ const PortfolioPost: NextPageWithLayout = ({
           <div className="error">An error occurred: {errors.message}</div>
         )}
 
-        {!data && <div className="error">No posts found</div>}
+        <h1 className="text-center">{title}</h1>
 
-        <h1>{title}</h1>
+        {hasURL(links) && (
+          <div className="mx-auto flex gap-4 justify-center">
+            <Link
+              href={links.url}
+              className="hover:cursor-pointer hover:scale-105 transition-all duration-200"
+              target={"_blank"}
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/website.png"
+                width={65}
+                height={65}
+                alt="website"
+                style={{ margin: 0 }}
+              />
+            </Link>
+            <Link
+              href={links.github}
+              className="hover:cursor-pointer hover:scale-105 transition-all duration-200"
+              target={"_blank"}
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/github.png"
+                width={65}
+                height={65}
+                alt="website"
+                style={{ margin: 0 }}
+              />
+            </Link>
+          </div>
+        )}
 
         <div className="relative lg:mb-10">
           <Image

@@ -53,15 +53,19 @@ export default function Home() {
             animate="visible"
             className="py-10 lg:py-56"
           >
-            <Link
-              href="/contact"
-              className="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200 no-underline mb-5"
-            >
+            <div className="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200 no-underline mb-5">
               <span className="px-3 text-white text-sm font-semibold leading-5 bg-red-700 rounded-full py-0.5">
                 Need a website?
               </span>
-              <span className="ml-4 text-sm">Contact Me</span>
-            </Link>
+
+              <Link
+                href="https://www.linkedin.com/in/ivanvgarcia"
+                passHref={true}
+                className="no-underline hover:underline"
+              >
+                <span className="ml-4 text-sm ">Contact Me On LinkedIn</span>
+              </Link>
+            </div>
 
             <h1 className="mb-0 lg:text-6xl text-gray-800 dark:text-white">
               {line.split("").map((char, index) => {

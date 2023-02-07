@@ -2,7 +2,6 @@
 
 const path = require("path");
 
-console.log(process.env.AWS_BUCKET);
 const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
