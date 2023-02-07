@@ -80,8 +80,8 @@ export default function Home({ post: { data } }: any) {
               className="relative rounded-xl overflow-hidden bg-red-700 cursor-pointer drop-shadow group transition-all duration-300 ease-in-out min-h-[400px]"
               key={post.id}
             >
-              <div className="absolute left-0 top-0 w-full h-full bg-white/80 hover:bg-white/50 z-10 flex flex-col justify-center items-center">
-                <p className="text-slate-900 font-bold tracking-wider text-2xl lg:text-5xl">
+              <div className="absolute left-0 top-0 w-full h-full bg-sky-900/80 hover:bg-sky-900/50 z-10 flex flex-col justify-center items-center">
+                <p className="text-white font-bold tracking-wider text-2xl lg:text-5xl">
                   {post.attributes.title}
                 </p>
                 <br />
