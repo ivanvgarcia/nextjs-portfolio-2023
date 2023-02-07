@@ -43,7 +43,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 }
 
 function hasURL(links: { url: string; github: string }) {
-  return links.url || links.github;
+  return links?.url || links?.github;
 }
 
 const PortfolioPost: NextPageWithLayout = ({
@@ -88,34 +88,38 @@ const PortfolioPost: NextPageWithLayout = ({
 
         {hasURL(links) && (
           <div className="mx-auto flex gap-4 justify-center">
-            <Link
-              href={links.url}
-              className="hover:cursor-pointer hover:scale-105 transition-all duration-200"
-              target={"_blank"}
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/images/website.png"
-                width={65}
-                height={65}
-                alt="website"
-                style={{ margin: 0 }}
-              />
-            </Link>
-            <Link
-              href={links.github}
-              className="hover:cursor-pointer hover:scale-105 transition-all duration-200"
-              target={"_blank"}
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/images/github.png"
-                width={65}
-                height={65}
-                alt="website"
-                style={{ margin: 0 }}
-              />
-            </Link>
+            {links?.url && (
+              <Link
+                href={links.url}
+                className="hover:cursor-pointer hover:scale-105 transition-all duration-200"
+                target={"_blank"}
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/images/website.png"
+                  width={65}
+                  height={65}
+                  alt="website"
+                  style={{ margin: 0 }}
+                />
+              </Link>
+            )}
+            {links?.github && (
+              <Link
+                href={links.github}
+                className="hover:cursor-pointer hover:scale-105 transition-all duration-200"
+                target={"_blank"}
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/images/github.png"
+                  width={65}
+                  height={65}
+                  alt="website"
+                  style={{ margin: 0 }}
+                />
+              </Link>
+            )}
           </div>
         )}
 
