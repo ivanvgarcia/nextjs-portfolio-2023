@@ -45,7 +45,7 @@ export default function Home() {
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ type: "spring", stiffness: 100 }}
-          className="grid grid-cols-1 lg:grid-cols-2 mx-4 px-10 h-full bg-red-800 rounded-lg drop-shadow-lg"
+          className="grid grid-cols-1 lg:grid-cols-2 mx-2 lg:mx-4 px-6 lg:px-10 h-full bg-red-800 rounded-lg drop-shadow-lg"
         >
           <motion.div
             variants={sentence}
@@ -63,7 +63,9 @@ export default function Home() {
                 passHref={true}
                 className="no-underline hover:underline"
               >
-                <span className="ml-4 text-sm ">Contact Me On LinkedIn</span>
+                <span className="ml-4 text-sm pr-2">
+                  Contact Me On LinkedIn
+                </span>
               </Link>
             </div>
 
