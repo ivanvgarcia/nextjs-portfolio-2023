@@ -28,7 +28,7 @@ html,
 }
 
 .side-menu {
-  @apply absolute top-0 left-0 bottom-0 w-[400px] max-w-full;
+  @apply fixed top-0 left-0 bottom-0 w-[400px] max-w-full;
   .background {
     position: fixed;
     top: 0;
