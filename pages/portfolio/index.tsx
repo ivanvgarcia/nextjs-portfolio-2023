@@ -62,7 +62,7 @@ export default function Home({ post: { data } }: any) {
         initial={{ opacity: 1, transform: "translate(-50%, -50%);" }}
         animate={{ opacity: 0, scale: 0 }}
         transition={{ delay: 1.5 }}
-        className="center-absolute text-2xl md:text-6xl text-white font-light z-10 bg-gradient-to-r from-slate-600 to-slate-900 rounded-full px-8 pt-2 pb-4 border-8 border-white shadow-md"
+        className="center-absolute text-2xl md:text-6xl text-white font-light z-10 bg-gradient-to-r from-slate-600 to-slate-900 rounded-full px-8 pb-2 lg:pt-2 lg:pb-4 border-8 border-white shadow-md"
       >
         Projects
       </motion.h1>

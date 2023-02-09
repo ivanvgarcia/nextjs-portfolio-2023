@@ -90,9 +90,15 @@ export default function Home() {
             </h2>
 
             <p className="lg:text-xl text-white">
-              Over 3 years of experience developing websites for clients from
-              around the world. Experienced with Vue.js, React.js, Next.js,
-              Node.js, Ruby on Rails and more.
+              Over 5 years of experience developing websites for clients world
+              wite. Experienced with Vue.js, React.js, Next.js, Node.js, Ruby on
+              Rails and more.
+            </p>
+
+            <p className="lg:text-xl text-white">
+              I&apos;m currently looking for a new role as a Software Engineer.
+              If you need a website or have a project that needs coding, feel
+              free to contact me. I&apos;d love to hear from you!
             </p>
 
             <Button.Group>
