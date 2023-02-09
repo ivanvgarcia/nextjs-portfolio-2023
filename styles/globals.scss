@@ -28,6 +28,7 @@ html,
 }
 
 .side-menu {
+  z-index: 9999;
   @apply fixed top-0 left-0 bottom-0 w-[400px] max-w-full;
   .background {
     position: fixed;
