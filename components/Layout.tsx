@@ -50,10 +50,9 @@ export default function Home({ children }: Props) {
               name="Ivan Garcia"
             />
             <Footer.LinkGroup className="justify-between">
-              <Footer.Link href="#">Home</Footer.Link>
-              <Footer.Link href="#">Blog</Footer.Link>
-              <Footer.Link href="#">Portfolio</Footer.Link>
-              <Footer.Link href="#">Contact</Footer.Link>
+              <Footer.Link href="/">Home</Footer.Link>
+              <Footer.Link href="/blog">Blog</Footer.Link>
+              <Footer.Link href="/portfolio">Portfolio</Footer.Link>
             </Footer.LinkGroup>
           </div>
           <Footer.Divider />
