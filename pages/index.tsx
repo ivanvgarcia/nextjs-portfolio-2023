@@ -117,7 +117,7 @@ export default function Home() {
               alt="Ivan Garcia"
               width={1200}
               height={1200}
-              className="absolute left-0 md:left-32 xl:left-56 bottom-0 m-0 w-4/5 lg:w-3/5"
+              className="absolute left-20 lg:left-0 md:left-32 xl:left-56 bottom-0 m-0 w-4/5 lg:w-3/5"
             />
           </div>
         </motion.div>
