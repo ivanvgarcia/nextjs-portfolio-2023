@@ -90,9 +90,9 @@ export default function Home() {
             </h2>
 
             <p className="lg:text-xl text-white">
-              Over 5 years of experience developing websites for clients world
-              wite. Experienced with Vue.js, React.js, Next.js, Node.js, Ruby on
-              Rails and more.
+              Over 5 years of experience developing websites for clients
+              worldwide. Experienced with Vue.js, React.js, Next.js, Node.js,
+              Ruby on Rails and more.
             </p>
 
             <p className="lg:text-xl text-white">
