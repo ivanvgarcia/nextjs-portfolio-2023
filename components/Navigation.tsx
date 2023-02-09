@@ -4,11 +4,9 @@ import MenuItem from "@/components/MenuItem";
 
 const variants = {
   open: {
-    visibility: "visible",
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
   },
   closed: {
-    visibility: "hidden",
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
