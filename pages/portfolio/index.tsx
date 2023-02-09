@@ -84,7 +84,9 @@ export default function Home({ post: { data } }: any) {
                 <p className="text-white font-bold tracking-wider text-2xl lg:text-5xl">
                   {post.attributes.title}
                 </p>
+
                 <br />
+
                 <div className="flex gap-4">
                   {post.attributes.technologies.data?.map((tech: any) => {
                     return (

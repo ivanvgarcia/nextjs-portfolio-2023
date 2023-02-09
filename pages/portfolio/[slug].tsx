@@ -133,7 +133,7 @@ const PortfolioPost: NextPageWithLayout = ({
         </div>
 
         <article
-          className="font-normal text-gray-700 dark:text-gray-400"
+          className="font-normal text-slate-900 dark:text-white"
           dangerouslySetInnerHTML={{ __html: body }}
         />
       </motion.section>
