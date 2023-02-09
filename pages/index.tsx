@@ -51,10 +51,10 @@ export default function Home() {
             variants={sentence}
             initial="hidden"
             animate="visible"
-            className="py-10 lg:py-56"
+            className="py-12 lg:py-56"
           >
             <div className="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200 no-underline mb-5">
-              <span className="px-3 text-white text-sm font-semibold leading-5 bg-red-700 rounded-full py-0.5">
+              <span className="px-1 lg:px-3 text-white text-sm font-semibold leading-5 bg-red-700 rounded-full py-0.5">
                 Need a website?
               </span>
 

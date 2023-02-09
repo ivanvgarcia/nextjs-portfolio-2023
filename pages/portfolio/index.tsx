@@ -87,13 +87,12 @@ export default function Home({ post: { data } }: any) {
 
                 <br />
 
-                <div className="flex gap-4">
+                <div className="flex flex-wrap lg:no-wrap gap-4">
                   {post.attributes.technologies.data?.map((tech: any) => {
                     return (
                       <div
                         key={tech.id}
-                        className="relative"
-                        style={{ width: 100, height: 70 }}
+                        className="relative w-[50px] h-[40px] lg:no-wrap lg:w-[100px] lg:h-[70px]"
                       >
                         <Image
                           src={tech.attributes.url}

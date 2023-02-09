@@ -96,3 +96,9 @@ html,
     flex: 1;
   }
 }
+
+@media screen and (max-height: 700px) {
+  .home img {
+    @apply w-[50%] right-0 left-auto;
+  }
+}
