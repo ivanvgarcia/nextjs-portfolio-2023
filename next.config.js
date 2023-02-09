@@ -2,12 +2,12 @@
 
 const path = require("path");
 
-const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self';
-  style-src 'self';
-  font-src 'self';
-`;
+// const ContentSecurityPolicy = `
+//   default-src 'self';
+//   script-src 'self';
+//   style-src 'self' 'unsafe-inline';
+//   font-src 'self';
+// `;
 
 const securityHeaders = [
   {
@@ -38,10 +38,10 @@ const securityHeaders = [
     key: "Referrer-Policy",
     value: "origin-when-cross-origin",
   },
-  {
-    key: "Content-Security-Policy",
-    value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
-  },
+  // {
+  //   key: "Content-Security-Policy",
+  //   value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
+  // },
 ];
 
 const nextConfig = {
